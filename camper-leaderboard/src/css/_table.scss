@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100vw;
+}
+
+table {
+	border-collapse: collapse;
+	width: 80vw;
+}
+
+th {
+	padding: 1%;
+	text-align: right;
+}
+
+tr:nth-child(even) {
+	background: skyblue;
+}
+
+tr {
+	border: 1px solid black;
+}
+
+td {
+	padding: 1.5%;
+	text-align: right;
+}
