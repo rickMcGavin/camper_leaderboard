@@ -19,9 +19,18 @@ table {
   border-collapse: collapse;
   width: 80vw; }
 
+.head-row {
+  background: skyblue; }
+
 th {
   padding: 1%;
   text-align: right; }
+
+.thirty-day-cell {
+  cursor: pointer; }
+
+.all-time-cell {
+  cursor: pointer; }
 
 tr:nth-child(even) {
   background: skyblue; }
@@ -32,5 +41,13 @@ tr {
 td {
   padding: 1.5%;
   text-align: right; }
+
+.user-pic {
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px; }
+
+.name {
+  text-align: left; }
 
 /*# sourceMappingURL=App.css.map */

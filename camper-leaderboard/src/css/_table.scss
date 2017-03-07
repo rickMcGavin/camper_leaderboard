@@ -11,9 +11,21 @@ table {
 	width: 80vw;
 }
 
+.head-row {
+	background: skyblue;
+}
+
 th {
 	padding: 1%;
 	text-align: right;
+}
+
+.thirty-day-cell {
+	@include cursor;
+}
+
+.all-time-cell {
+	@include cursor;
 }
 
 tr:nth-child(even) {
@@ -27,4 +39,13 @@ tr {
 td {
 	padding: 1.5%;
 	text-align: right;
+}
+.user-pic {
+	border-radius: 50%;
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.name {
+	text-align: left;
 }
