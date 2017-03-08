@@ -5,7 +5,7 @@ import React from 'react';
 const Header = (props) => {
 		return (
 			<header className="header">
-				<h3>freeCodeCamp Leaderboard</h3>
+				<h2>freeCodeCamp Leaderboard</h2>
 			</header>
 		)
 }

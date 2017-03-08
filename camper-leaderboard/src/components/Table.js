@@ -1,20 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 
-// NOTES:
-// The tables aren't exactly displaying onClick. I think I need to structure it 
-// differently. If I pull the table head off and keep it static, I may be able to
-// just work some CSS class display: none and display: auto(?), block(?) trickery
-// to make it work
-
 class Table extends React.Component {
+
 
 	constructor(props) {
 		super(props);
 
+
 		this.state = {
 			thirtyDayArr: [],
-			allTimeArr: []
+			allTimeArr: [],
+			isIt30Days: true
 		};
 	}
 
@@ -29,25 +26,11 @@ class Table extends React.Component {
 		.then(res => {
 			const allTimeArr = res.data;
 			this.setState({allTimeArr});
-			console.log(this.state.allTimeArr);
 		});
 	}
 
 	renderAllTime() {
 		return (
-			<div className="container">
-				<table>
-					<thead>
-						<tr className="head-row">
-							<th>#</th>
-							<th></th>
-							<th className='name'>Name</th>
-							<th className="thirty-day-cell"
-									onClick={() => this.renderThirtyDays()}>Points in 30 Days</th>
-							<th className="all-time-cell"
-									onClick={() => this.renderAllTime()}>Points All Time</th>
-						</tr>
-					</thead>
 					<tbody>
 					{this.state.allTimeArr.map((obj, index) => {
 						return <tr key={index}>
@@ -63,26 +46,11 @@ class Table extends React.Component {
 									</tr>
 					})}
 					</tbody>
-				</table>
-			</div>
 		)
 	}
 
 	renderThirtyDays() {
 		return (
-			<div className="container">
-				<table>
-					<thead>
-						<tr className="head-row">
-							<th>#</th>
-							<th></th>
-							<th className='name'>Name</th>
-							<th className="thirty-day-cell"
-									onClick={() => this.renderThirtyDays()}>Points in 30 Days</th>
-							<th className="all-time-cell"
-									onClick={() => this.renderAllTime()}>Points All Time</th>
-						</tr>
-					</thead>
 					<tbody>
 					{this.state.thirtyDayArr.map((obj, index) => {
 						return <tr key={index}>
@@ -98,13 +66,42 @@ class Table extends React.Component {
 									</tr>
 					})}
 					</tbody>
-				</table>
-			</div>
 		)
 	}
 
+	handleThirtyDayClick() {
+		this.setState({isIt30Days: true})
+		this.refs.thirtyDayArrow.classList.remove('hidden');
+		this.refs.allTimeArrow.classList.add('hidden');
+	}
+
+	handleAllTimeClick() {
+		this.setState({isIt30Days: false})
+		this.refs.thirtyDayArrow.classList.add('hidden');
+		this.refs.allTimeArrow.classList.remove('hidden');
+	}
+
 	render() {
-		return <div>{this.renderThirtyDays()}</div>
+
+		return (<div className="container">
+			<table>
+				<thead>
+					<tr className="head-row">
+						<th>#</th>
+						<th></th>
+						<th className="name">Name</th>
+						<th className="thirty-day-cell"
+								onClick={() => this.handleThirtyDayClick()}>Points in 30 Days 
+								<span ref="thirtyDayArrow">↓</span></th>
+						<th className="all-time-cell"
+										onClick={() => this.handleAllTimeClick()}>Points All Time
+										<span ref="allTimeArrow" className="hidden">↓</span></th>		
+					</tr>
+				</thead>	
+					{this.state.isIt30Days ? this.renderThirtyDays() : this.renderAllTime()}
+			</table>
+		</div>
+		)
 	}
 }
 

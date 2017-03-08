@@ -1,3 +1,27 @@
+$background-color: #FAFAFA;
+$table-background: #FFFFFF;
+$text-color: rgba(0,0,0,.54);
+$accent-color: #8BC34A;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 @mixin cursor {
 	cursor: pointer;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.show {
+	visibility: visible;
+}
+
+body {
+	background: $background-color;
+	color: $text-color;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
 }

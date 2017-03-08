@@ -8,16 +8,17 @@
 
 table {
 	border-collapse: collapse;
-	width: 80vw;
-}
-
-.head-row {
-	background: skyblue;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 
+							0 3px 1px -2px rgba(0,0,0,.2), 
+							0 1px 5px 0 rgba(0,0,0,.12);
+	margin-bottom: 20px;
+	max-width: 1024px;
+	width: 100vw;
 }
 
 th {
+	color: $accent-color;
 	padding: 1%;
-	text-align: right;
 }
 
 .thirty-day-cell {
@@ -28,24 +29,18 @@ th {
 	@include cursor;
 }
 
-tr:nth-child(even) {
-	background: skyblue;
-}
-
 tr {
-	border: 1px solid black;
+	background: $table-background;
+	border-top: 1px solid rgba(0,0,0, 0.12);
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
 }
 
 td {
-	padding: 1.5%;
-	text-align: right;
+	text-align: center;
 }
 .user-pic {
 	border-radius: 50%;
+	border: 1px solid rgba(0,0,0, 0.12);
 	max-width: 50px;
 	max-height: 50px;
-}
-
-.name {
-	text-align: left;
 }
